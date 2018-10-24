@@ -6,14 +6,21 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
-        app: './src/app/main.js',
+        app: './src/app/main.tsx',
     },
     output: {
         path: path.resolve(__dirname, 'dist/myApp'),
         filename: 'assets/js/[name].[contenthash].js',
     },
+    resolve: {
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+    },
     module: {
         rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                loader: 'ts-loader'
+            },
             {
                 test: /\.(s[ca]{1})ss$/,
                 use: [
@@ -64,7 +71,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'dist/template.html',
-            title: 'dapp todos example',
+            title: 'Dapp chat',
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[contenthash].css',

@@ -1,12 +1,12 @@
 import '../assets/css/style.scss'
-import React from 'react'
+import * as React from 'react';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 //import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { persistStore, persistReducer } from 'redux-persist'
-import localforage from 'localforage'
+import * as localforage from 'localforage'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import App from './components/App';
